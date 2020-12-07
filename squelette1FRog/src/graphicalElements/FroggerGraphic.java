@@ -2,6 +2,8 @@ package graphicalElements;
 
 import javax.swing.*;
 
+import InfiniteFrogger.EnvInf;
+import gameCommons.IEnvironment;
 import gameCommons.IFrog;
 import util.Direction;
 
@@ -16,6 +18,7 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 	private int width;
 	private int height;
 	private IFrog frog;
+	private IEnvironment env;
 	private JFrame frame;
 
 	public FroggerGraphic(int width, int height) {
@@ -50,12 +53,25 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 	}
 
 	public void keyPressed(KeyEvent e) {
+		Direction key;
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_UP:
-			frog.move(Direction.up);
+			key = Direction.up; 
+			if (this.env instanceof EnvInf) {
+				EnvInf envInf = (EnvInf) this.env;
+				envInf.moveLane(key);
+			} else {
+				frog.move(key);
+			}
 			break;
 		case KeyEvent.VK_DOWN:
-			frog.move(Direction.down);
+			key = Direction.down; 
+			if (this.env instanceof EnvInf) {
+				EnvInf envInf = (EnvInf) this.env;
+				envInf.moveLane(key);
+			} else {
+				frog.move(key);
+			}
 			break;
 		case KeyEvent.VK_LEFT:
 			frog.move(Direction.left);
@@ -76,14 +92,35 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 	public void setFrog(IFrog frog) {
 		this.frog = frog;
 	}
+	
+	public void setEnv(IEnvironment env) {
+		this.env = env;
+	}
 
-	public void endGameScreen(String s) {
+	public void endGameScreen(String[] s) {
 		frame.remove(this);
-		JLabel label = new JLabel(s);
+		JLabel label = new JLabel(s[0]);
 		label.setFont(new Font("Verdana", 1, 20));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setVerticalAlignment(SwingConstants.CENTER);
 		label.setSize(this.getSize());
 		frame.getContentPane().add(label);
+		
+		if(s.length == 3) {
+			JLabel score = new JLabel(s[1]);
+			score.setFont(new Font("Verdana", 1, 18));
+			score.setHorizontalAlignment(SwingConstants.CENTER);
+			score.setVerticalAlignment(SwingConstants.TOP);
+			score.setSize(this.getSize());
+			frame.getContentPane().add(score);
+			
+			JLabel timer = new JLabel(s[2]);
+			timer.setFont(new Font("Verdana", 1, 18));
+			timer.setHorizontalAlignment(SwingConstants.CENTER);
+			timer.setVerticalAlignment(SwingConstants.BOTTOM);
+			timer.setSize(this.getSize());
+			frame.getContentPane().add(timer);
+		}
 		frame.repaint();
 
 	}

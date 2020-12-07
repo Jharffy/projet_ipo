@@ -7,9 +7,9 @@ import util.Direction;
 
 public class Frog implements IFrog {
 	
-	private Game game;
-	private Case pos;
-	private Direction dir;
+	protected Game game;
+	protected Case pos;
+	protected Direction dir;
 	
 	public Frog(Game game) {
 		this.game = game;
@@ -30,7 +30,7 @@ public class Frog implements IFrog {
 	public void move(Direction key) {
 		Case originCase = this.getPosition();
 		if(key == Direction.up) {
-			if(originCase.getOrd() < game.height -1) { //Vérifie les limites
+			if(originCase.getOrd() < game.height -1) { //VÃ©rifie les limites
 				Case newCase = new Case(originCase.getAbsc(), originCase.getOrd() +1);
 				this.pos = newCase;
 			}
@@ -56,5 +56,5 @@ public class Frog implements IFrog {
 		this.dir = key;
 	}
 
-
 }
+
