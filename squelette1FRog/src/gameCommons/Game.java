@@ -16,13 +16,13 @@ public class Game {
 	public final int minSpeedInTimerLoops;
 	public final double defaultDensity;
 
-	// Lien aux objets utilisï¿½s
+	// Lien aux objets utilisés
 	private IEnvironment environment;
 	private IFrog frog;
 	private IFroggerGraphics graphic;
 
 	/**
-	 *
+	 * 
 	 * @param graphic
 	 *            l'interface graphique
 	 * @param width
@@ -30,7 +30,7 @@ public class Game {
 	 * @param height
 	 *            hauteur en cases
 	 * @param minSpeedInTimerLoop
-	 *            Vitesse minimale, en nombre de tour de timer avant dï¿½placement
+	 *            Vitesse minimale, en nombre de tour de timer avant déplacement
 	 * @param defaultDensity
 	 *            densite de voiture utilisee par defaut pour les routes
 	 */
@@ -44,8 +44,8 @@ public class Game {
 	}
 
 	/**
-	 * Lie l'objet frog ï¿½ la partie
-	 *
+	 * Lie l'objet frog à la partie
+	 * 
 	 * @param frog
 	 */
 	public void setFrog(IFrog frog) {
@@ -54,7 +54,7 @@ public class Game {
 
 	/**
 	 * Lie l'objet environment a la partie
-	 *
+	 * 
 	 * @param environment
 	 */
 	public void setEnvironment(IEnvironment environment) {
@@ -62,7 +62,7 @@ public class Game {
 	}
 
 	/**
-	 *
+	 * 
 	 * @return l'interface graphique
 	 */
 	public IFroggerGraphics getGraphic() {
@@ -70,9 +70,9 @@ public class Game {
 	}
 
 	/**
-	 * Teste si la partie est perdue et lance un ï¿½cran de fin appropriï¿½ si tel
+	 * Teste si la partie est perdue et lance un écran de fin approprié si tel
 	 * est le cas
-	 *
+	 * 
 	 * @return true si le partie est perdue
 	 */
 	public boolean testLose() {
@@ -85,14 +85,14 @@ public class Game {
 	}
 
 	/**
-	 * Teste si la partie est gagnee et lance un ï¿½cran de fin appropriï¿½ si tel
+	 * Teste si la partie est gagnee et lance un écran de fin approprié si tel
 	 * est le cas
-	 *
-	 * @return true si la partie est gagnï¿½e
+	 * 
+	 * @return true si la partie est gagnée
 	 */
 	public boolean testWin() {
 		if ( this.environment.isWinningPosition(this.frog.getPosition()) ){
-			this.getGraphic().endGameScreen("Grenouille sauvï¿½e !");
+			this.getGraphic().endGameScreen("Grenouille sauvée !");
 			return true;
 		} else {
 			return false;

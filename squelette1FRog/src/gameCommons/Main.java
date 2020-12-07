@@ -5,8 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import environment.Environment;
 import frog.Frog;
-import givenEnvironment.GivenEnvironment;
+//import givenEnvironment.GivenEnvironment;
 import graphicalElements.FroggerGraphic;
 import graphicalElements.IFroggerGraphics;
 
@@ -14,25 +15,25 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//Caractï¿½ristiques du jeu  Taille d'un tableau de cases (pas des pixels !!)
+		//Caractéristiques du jeu  Taille d'un tableau de cases (pas des pixels !!)
 		int width = 26;
 		int height = 20;
 		int tempo = 100;
 		int minSpeedInTimerLoops = 3;
-		double defaultDensity = 0.2;
-
-		//Crï¿½ation de l'interface graphique
+		double defaultDensity = 0.05;
+		
+		//Création de l'interface graphique
 		IFroggerGraphics graphic = new FroggerGraphic(width, height);
-		//Crï¿½ation de la partie
+		//Création de la partie
 		Game game = new Game(graphic, width, height, minSpeedInTimerLoops, defaultDensity);
-		//Crï¿½ation et liason de la grenouille
+		//Création et liason de la grenouille
 		IFrog frog = new Frog(game);
 		game.setFrog(frog);
 		graphic.setFrog(frog);
-		//Crï¿½ation et liaison de l'environnement
-		IEnvironment env = new GivenEnvironment(game);
+		//Création et liaison de l'environnement
+		IEnvironment env = new Environment(game);
 		game.setEnvironment(env);
-
+				
 		//Boucle principale : l'environnement s'acturalise tous les tempo milisecondes
 		Timer timer = new Timer(tempo, new ActionListener() {
 			@Override

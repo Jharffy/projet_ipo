@@ -6,14 +6,14 @@ import util.Case;
 import util.Direction;
 
 public class Frog implements IFrog {
-
+	
 	private Game game;
 	private Case pos;
 	private Direction dir;
-
+	
 	public Frog(Game game) {
 		this.game = game;
-		this.pos = new Case(game.width/2,0);
+		this.pos = new Case(game.width/2, 0);
 	}
 
 	@Override
@@ -30,11 +30,11 @@ public class Frog implements IFrog {
 	public void move(Direction key) {
 		Case originCase = this.getPosition();
 		if(key == Direction.up) {
-			if(originCase.getOrd() < game.height -1) { //Vï¿½rifie les limites
+			if(originCase.getOrd() < game.height -1) { //Vérifie les limites
 				Case newCase = new Case(originCase.getAbsc(), originCase.getOrd() +1);
 				this.pos = newCase;
 			}
-
+			
 		} else if (key == Direction.down) {
 			if(originCase.getOrd() != 0) {
 				Case newCase = new Case(originCase.getAbsc(), originCase.getOrd() -1);
@@ -51,8 +51,8 @@ public class Frog implements IFrog {
 				this.pos = newCase;
 			}
 		}
-
-
+		
+		
 		this.dir = key;
 	}
 
