@@ -3,32 +3,32 @@ package graphicalElements;
 import gameCommons.IFrog;
 
 public interface IFroggerGraphics {
-	
-	/**
-	 * Ajoute l'élément aux éléments à afficher
-	 * @param e
-	 */
-    public void add(Element e);
-    
+
     /**
-     * Enlève tous les éléments actuellement affichés
+     * Ajoute l'ï¿½lï¿½ment aux ï¿½lï¿½ments ï¿½ afficher
+     * @param e
+     */
+    public void add(Element e);
+
+    /**
+     * Enlï¿½ve tous les ï¿½lï¿½ments actuellement affichï¿½s
      */
     public void clear();
-    
+
     /***
      * Actualise l'affichage
      */
     public void repaint();
-    
+
     /**
-     * Lie la grenouille à l'environneemnt graphique
+     * Lie la grenouille ï¿½ l'environneemnt graphique
      * @param frog
      */
     public void setFrog(IFrog frog);
-    
+
     /**
-     * Lance un écran de fin de partie
-     * @param message le texte à afficher
+     * Lance un ï¿½cran de fin de partie
+     * @param message le texte ï¿½ afficher
      */
     public void endGameScreen(String message);
 }
