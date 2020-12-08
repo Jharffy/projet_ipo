@@ -1,7 +1,5 @@
 package InfiniteFrogger;
 
-import java.util.ArrayList;
-
 import environment.Car;
 import environment.Environment;
 import environment.Lane;

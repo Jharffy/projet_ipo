@@ -8,8 +8,6 @@ import javax.swing.Timer;
 
 import InfiniteFrogger.EnvInf;
 import InfiniteFrogger.FrogInf;
-import environment.Environment;
-import frog.Frog;
 import givenEnvironment.GivenEnvironment;
 import graphicalElements.FroggerGraphic;
 import graphicalElements.IFroggerGraphics;
